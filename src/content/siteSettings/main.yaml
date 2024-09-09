@@ -1,0 +1,11 @@
+logoImage: /images/logo/logoImage.svg
+showHeader: true
+showLogo: true
+showTheme: true
+showSwitch: true
+showSearch: false
+showFooter: true
+defaultView: grid
+showTitles: true
+showDates: false
+MAX_POSTS: 3

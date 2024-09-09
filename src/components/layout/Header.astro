@@ -1,0 +1,60 @@
+---
+import ThemeToggle from "../ThemeToggle.astro";
+import Search from "../Search.astro";
+import Switch from "@/components/Switch.jsx";
+import { getMenuLinks } from "@/site-config";
+import { getEntry } from 'astro:content';
+
+const siteSettings = await getEntry('siteSettings', 'main');
+const { showHeader, showLogo, showTheme, showSearch, showSwitch, logoImage, defaultView } = siteSettings.data;
+
+const styleAppearance = await getEntry('styleapps', 'index');
+const { backgroundImage } = styleAppearance.data;
+
+const url = new URL(Astro.request.url);
+const menuLinks = await getMenuLinks();
+---
+
+{showHeader && (
+  <div id="menu" class="menu header">
+    {showLogo && logoImage && (
+      <a href="/" aria-current={url.pathname === "/" ? "page" : false} class="relative top-1 left-2.5 p-0">
+        <img 
+          src={logoImage}
+          alt="Site Logo"
+          class="max-h-[60px] max-w-[90px] cornerlogo"
+          loading="eager"
+          fetchpriority="high"
+          width="90"
+          height="60"
+        />
+      </a>
+    )}
+
+    <ul class="topmenu flex justify-around items-center gap-4 m-auto p-0 h-15 text-center text-[clamp(0.6rem,1.6vw,1.8rem)]">
+      {menuLinks.map((link) => (
+        <li>
+          <a
+            href={link.path}
+            class="px-4 py-4 sm:py-0 sm:hover:underline"
+            aria-current={url.pathname === link.path ? "page" : false}
+            rel="prefetch"
+            data-astro-reload
+          >
+            {link.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div id="missioncontrol" class="missioncontrol sitecontrols flex justify-around items-center gap-3 pr-2.5">
+      {showSearch && <Search />}
+      {showSwitch && <Switch client:load defaultView={defaultView} />}
+      {showTheme && <ThemeToggle />}
+    </div>
+  </div>
+)}
+
+{backgroundImage && (
+  <img class="backimage w-2.5 h-2.5" src={backgroundImage} alt="Default Background" width="10" height="10" />
+)}

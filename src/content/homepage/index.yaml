@@ -1,0 +1,19 @@
+featureImage:
+  src: /images/homepage/featureImage/src.webp
+  alt: Become a Pirate!
+showFeature: true
+showBioOnHome: true
+showHomeGallery: false
+showPosts: true
+showFaqOnHome: true
+showTestOnHome: false
+pitch: test
+postsectiontitle: 'I like big posts '
+youtube:
+  url: https://youtu.be/nspxAG12Cpc?si=AYGPaTSWOlWBvdW_
+  controls: false
+  useCustomPlayer: true
+  mute: true
+  loop: false
+  start: .nan
+  end: .nan

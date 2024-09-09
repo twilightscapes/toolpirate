@@ -1,0 +1,65 @@
+---
+import PostPreview from "@/components/blog/PostPreview.astro";
+import { getAllPosts, sortMDByDate } from "@/data/post";
+import PageLayout from "@/layouts/Base.astro";
+import Faqs from "@/components/Faqs.astro";
+import Testimonials from '../components/Testimonials.astro';
+import Feature from "@/components/Feature.astro";
+import Bio from "@/components/Bio.astro";
+import { getEntry } from 'astro:content';
+import keystaticConfig from '../../keystatic.config';
+import { createReader } from '@keystatic/core/reader';
+import PhotoSection from "@/components/PhotoGallery.astro"
+
+const siteSettings = await getEntry('siteSettings', 'main');
+const { defaultView, MAX_POSTS } = siteSettings.data;
+const homeContent = await getEntry('homepage', 'index');
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const homepage = await reader.singletons.home.read();
+const showBioOnHome = homepage?.showBioOnHome ?? false;
+const showFaqOnHome = homepage?.showFaqOnHome ?? false;
+const showTestOnHome = homepage?.showTestOnHome ?? false;
+const showFeature = homepage?.showFeature ?? false;
+const showPosts = homepage?.showPosts ?? false;
+const showHomeGallery = homepage?.showHomeGallery ?? false;
+
+const allPosts = await getAllPosts();
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
+---
+
+<PageLayout meta={{ title: homeContent.data.title, description: homeContent.data.description }}>
+	{showFeature && <Feature content={homeContent.data} />}
+
+	{showHomeGallery && <PhotoSection />}
+
+	{showBioOnHome && <Bio />}
+
+	{showFaqOnHome && (
+		<div class="w-full py-1 px-2 mb-4 text-center theme-accent backdrop-blur-lg">
+			<h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text">{homeContent.data.testimonialtitle}</h2>
+		</div>
+		<Faqs />
+	)}
+
+	{showTestOnHome && <Testimonials />}
+
+	{showPosts && (
+		<section class="scroll-container">
+			<div class="w-full py-1 px-2 mb-4 text-center theme-accent backdrop-blur-lg">
+				<h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text">{homeContent.data.postsectiontitle}</h2>
+			</div>
+			
+			<div class={`contentpanel ${defaultView === 'swipe' ? 'slider panels horizontal-slider' : 'grid-container'}`} transition:animate="slide">
+				
+<div class="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }} />
+
+				{allPostsByDate.map((p) => <PostPreview post={p} withDesc />)}
+
+				<a class="button no-underline text-white text-center block" href="/posts/">
+					View More
+				</a>
+			</div>
+		</section>
+	)}
+</PageLayout>

@@ -1,0 +1,71 @@
+---
+import type { SiteMeta } from "@/types";
+import BaseHead from "@/components/BaseHead.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import ThemeProvider from "@/components/ThemeProvider.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import { siteConfig } from "@/site-config";
+import DynamicTheme from '@/components/DynamicTheme.astro';
+// import { ViewTransitions } from 'astro:transitions';
+// <ViewTransitions />
+
+interface Props {
+  meta?: SiteMeta;
+  title?: string;
+  description?: string;
+  articleDate?: string;
+  ogImage?: string;
+}
+
+import { getEntry } from 'astro:content';
+const siteSettings = await getEntry('siteSettings', 'main');
+const { showFooter } = siteSettings.data;
+
+const { meta, title, description, articleDate, ogImage } = Astro.props;
+
+const pageTitle = title || meta?.title;
+const pageDescription = description || meta?.description;
+const pageArticleDate = articleDate || meta?.articleDate;
+const pageOgImage = ogImage || meta?.ogImage;
+---
+<html lang={siteConfig.lang} data-theme="light">
+	<head>
+		<script is:inline>
+			function getInitialTheme() {
+				const savedTheme = localStorage.getItem('theme');
+				return savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			}
+			document.documentElement.dataset.theme = getInitialTheme();
+		</script>
+		
+		<ThemeProvider />
+		<BaseHead 
+			title={pageTitle} 
+			description={pageDescription} 
+			articleDate={pageArticleDate} 
+			ogImage={pageOgImage} 
+		/>
+		<DynamicTheme />
+	</head>
+	
+	<body>
+		<SkipLink />
+		<Header transition:persist />
+
+			<main id="main" transition:animate="slide">
+				<slot />
+		</main>
+
+		{ showFooter && (
+		<Footer />
+		)}
+	
+
+
+
+
+	</body>
+	
+</html>
+		<script src="../components/scrollListener.js"></script>
