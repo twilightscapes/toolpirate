@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import expressiveCode from "astro-expressive-code";
+// import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import fs from "fs";
 import rehypeExternalLinks from "rehype-external-links";
@@ -13,7 +13,7 @@ import AstroPWA from '@vite-pwa/astro';
 import markdoc from "@astrojs/markdoc";
 import keystatic from '@keystatic/astro';
 import netlify from "@astrojs/netlify";
-
+import vercel from '@astrojs/vercel/serverless';
 import yaml from 'js-yaml';
 
 const pwaSettingsFile = import.meta.glob('./src/content/pwaSettings/index.yaml', { query: '?raw', import: 'default', eager: true });
@@ -22,6 +22,13 @@ const pwaConfig = yaml.load(pwaConfigYaml) as Record<string, any>;
 if (typeof pwaConfigYaml !== 'string') {
   throw new Error('pwaConfigYaml must be a string');
 }
+
+
+// Determine the adapter and output based on the environment
+const isVercel = !!process.env.VERCEL;
+const adapter = isVercel ? vercel() : netlify();
+const output = isVercel ? 'server' : 'hybrid';
+
 
 export default defineConfig({
   image: {
@@ -73,7 +80,7 @@ export default defineConfig({
       theme: 'dracula',
     },
   },
-  output: 'hybrid',
+  output: output,
   prefetch: true,
   site: pwaConfig.siteUrl,
   redirects: {
@@ -91,7 +98,7 @@ export default defineConfig({
     },
     plugins: [rawFonts([".ttf", ".woff"])],
   },
-  adapter: netlify()
+  adapter: adapter
 });
 
 function rawFonts(ext: string[]) {
