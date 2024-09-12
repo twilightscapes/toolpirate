@@ -28,7 +28,7 @@ export default config({
       },
   cloud: isProduction
     ? {
-        project: 'pirate/pirate',
+        project: 'tool/toolpirate',
       }
     : undefined,
   
