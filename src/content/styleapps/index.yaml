@@ -1,7 +1,7 @@
 backgroundImage: /images/styleapps/backgroundImage.webp
 siteFont: Orbitron
 borderRadius: 10px
-lightBg: rgba(192, 185, 185, 0.57)
+lightBg: rgba(153, 148, 148, 0.57)
 lightAccent: rgba(0, 0, 0, 1)
 lightAccent2: rgba(53, 34, 119, 1)
 darkBg: rgba(34, 34, 34, 1)
