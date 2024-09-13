@@ -8,10 +8,10 @@ showPosts: true
 showFaqOnHome: false
 showTestOnHome: false
 pitch: test
-postsectiontitle: TOOL SHED
+postsectiontitle: THE VAULT
 youtube:
   url: https://youtu.be/RsDXxIXGIq4?si=5mzJcdnjAA22ySKK
-  title: TOOL - The Grudge (Matrix Video)
+  title: WELCOME TO TOOL SHED
   controls: false
   useCustomPlayer: true
   mute: true
