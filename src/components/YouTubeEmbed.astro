@@ -211,17 +211,19 @@ const playerVars: { [key: string]: number | string } = {
         player.setVolume(this.value);
       });
       
-      volumeSlider.addEventListener('touchend', function() {
+      // Add touchstart event listener to update volume when user starts touching the slider
+      volumeSlider.addEventListener('touchstart', function() {
+        updateSliderBackground(this);
         player.setVolume(this.value);
       });
       
       // Add touchmove event listener to update volume in real-time on touch devices
-      volumeSlider.addEventListener('touchmove', function() {
+      volumeSlider.addEventListener('touchmove', function(event) {
+        event.preventDefault(); // Prevent default touch behavior
         updateSliderBackground(this);
         player.setVolume(this.value);
       });
-    }
-    if (loop) {
+    }    if (loop) {
       player.addEventListener('onStateChange', function(event) {
         if (event.data === YT.PlayerState.ENDED) {
           player.cueVideoById({
