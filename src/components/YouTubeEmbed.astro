@@ -204,19 +204,26 @@ const playerVars: { [key: string]: number | string } = {
 
       updateProgressBar();
     }
-
     const volumeSlider = document.getElementById('volume');
     if (volumeSlider) {
       volumeSlider.addEventListener('input', function() {
         updateSliderBackground(this);
         player.setVolume(this.value);
       });
-      
-      volumeSlider.addEventListener('touchend', function() {
-        player.setVolume(this.value);
-      });
-    }
 
+      // iOS-specific touch handler
+      if ('ontouchstart' in window) {
+        volumeSlider.addEventListener('touchmove', function(e) {
+          e.preventDefault();
+          const touch = e.touches[0];
+          const sliderRect = this.getBoundingClientRect();
+          const newValue = ((touch.clientX - sliderRect.left) / sliderRect.width) * 100;
+          this.value = Math.max(0, Math.min(100, newValue));
+          updateSliderBackground(this);
+          player.setVolume(this.value);
+        });
+      }
+    }
     if (loop) {
       player.addEventListener('onStateChange', function(event) {
         if (event.data === YT.PlayerState.ENDED) {
