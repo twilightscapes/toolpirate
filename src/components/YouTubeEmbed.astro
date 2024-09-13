@@ -51,20 +51,22 @@ const playerVars: { [key: string]: number | string } = {
         <button id="play-pause" class="play-pause-button">►</button>
         {title && <h2 class="video-title title1">{title}</h2>}
       </div>
-      <div class="bottom-tray">
+      <div class="bottom-tray" style="">
 
-        <label for="progress">Progress
-          <span style="padding:1.5vh 1rem; background:var(--theme-header); border-radius:var(--border-radius);"><input type="range" id="progress" min="0" max="100" value="0" class="progress-bar"></span>
+        <label for="progress" style="width:100%;">Progress
+          <span style="width:100%; padding:1.5vh 1rem; background:#111; border-radius:var(--border-radius);"><input type="range" id="progress" min="0" max="100" value="0" class="progress-bar"></span>
         </label>
 
         <label for="volume">Volume
-        <span style="padding:1.5vh 1rem; background:var(--theme-header); border-radius:var(--border-radius);"><input type="range" id="volume" min="0" max="100" value="100" class="volume-slider"></span></label>
+        <span style="padding:1.5vh 1rem; background:#111; border-radius:var(--border-radius);"><input type="range" id="volume" min="0" max="100" value="100" class="volume-slider"></span></label>
               
       <label for="mute-icon" style="padding:;">Mute
-        <span style="padding:1.3vh 1rem; background:var(--theme-header); border-radius:var(--border-radius);">  <button id="mute" class="control-button">
-      <svg id="mute-icon" viewBox="0 0 16 16" height="80px" width="80px" xmlns="http://www.w3.org/2000/svg">
+        <span style="padding:10px 8px 0 8px ; background:#111; border-radius:var(--border-radius);">
+          <button id="mute" class="control-button">
+      <svg id="mute-icon" viewBox="0 0 16 16" height="60px" width="60px" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.5 15c-0.13 0-0.258-0.051-0.354-0.146l-3.854-3.854h-1.793c-0.276 0-0.5-0.224-0.5-0.5v-5c0-0.276 0.224-0.5 0.5-0.5h1.793l3.854-3.854c0.143-0.143 0.358-0.186 0.545-0.108s0.309 0.26 0.309 0.462v13c0 0.202-0.122 0.385-0.309 0.462-0.062 0.026-0.127 0.038-0.191 0.038z"></path>
-      </svg></button></span></label>
+      </svg></button></span>
+    </label>
 
       </div>      
 
@@ -209,6 +211,10 @@ const playerVars: { [key: string]: number | string } = {
         updateSliderBackground(this);
         player.setVolume(this.value);
       });
+      
+      volumeSlider.addEventListener('touchend', function() {
+        player.setVolume(this.value);
+      });
     }
 
     if (loop) {
@@ -284,7 +290,7 @@ const playerVars: { [key: string]: number | string } = {
     .botblock{display:flex; width:100%; justify-content: center; position: absolute; bottom:0; height:50px; background:#000; z-index: 0;}
     .youtube-player{margin-top:60px;}
     .custom-youtube-player{margin-top:60px !important;}
-    .bottom-tray{padding-bottom: 0 !important;}
+    .bottom-tray{padding-bottom: 5px !important;}
   }
 
   .custom-youtube-player {
@@ -307,7 +313,7 @@ const playerVars: { [key: string]: number | string } = {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -345,7 +351,6 @@ const playerVars: { [key: string]: number | string } = {
   .bottom-tray {
     display: flex;
     align-items: center;
-    padding: 0 0 8vh 0;
     background-color: rgba(0, 0, 0, 0.7);
     width:100%;
     justify-content: center;
@@ -353,29 +358,28 @@ const playerVars: { [key: string]: number | string } = {
     z-index: 2;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    max-width: 600px;
+    margin:0 auto 0 auto;
+    padding:0 3% 50px 3%;
   }
   
 
-  #mute{color:var(--theme-accent2); width:100%; filter: brightness(1.5);}
+  #mute{color:var(--theme-accent2);}
 
-  label{display:flex; flex-direction: column; gap:10px; font-size: clamp(.8rem,.9vw,1rem); align-items: center; padding-bottom: 10px; filter:}
+  label{display:flex; flex-direction: column; gap:5px; font-size: clamp(.8rem,.9vw,1rem); align-items: center; }
 
-  :root[data-theme="dark"] label{filter: brightness(4.5);}
+  :root[data-theme="dark"] label span{filter: brightness(.8);}
 
   #mute svg .volume-icon { display: block; }
   #mute svg .muted-icon { display: none; }
   #mute.muted svg .volume-icon { display: none; }
   #mute.muted svg .muted-icon { display: block; }
-
-  #mute svg {  width: 24px;
-  height: 24px;
-  fill: currentColor;
-  filter: brightness(2.5);
-}
-
-#mute svg path {
+  #mute svg {  
+  width: 32px;
+  height: 32px;
   fill: currentColor;
 }
+#mute svg path {fill: currentColor;}
 
 
 
@@ -396,7 +400,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background-image: linear-gradient(#222, #333);
+  background: linear-gradient(#222, #333);
   cursor: ew-resize;
   box-shadow: 0 0 2px 0 #555;
   transition: background .3s ease-in-out;
@@ -411,7 +415,6 @@ input[type="range"]::-moz-range-thumb, input[type="range"]::-ms-thumb {
   cursor: ew-resize;
   box-shadow: 0 0 2px 0 #555;
   transition: background .3s ease-in-out;
-  filter: brightness(1.5);
 }
 
 
