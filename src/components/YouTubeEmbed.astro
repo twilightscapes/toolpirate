@@ -121,9 +121,9 @@ const playerVars: { [key: string]: number | string } = {
         centerControls.style.opacity = '0';
         setTimeout(() => {
           controls.style.opacity = '0';
-        }, 1000);
+        }, 50);
       }
-    }, 3000);
+    }, 100);
   }  function onPlayerReady(event) {
     const centerControls = document.querySelector('.center-controls');
     const muteButton = document.getElementById('mute');
