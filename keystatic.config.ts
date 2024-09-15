@@ -481,6 +481,10 @@ export default config({
           label: 'Dark Link Color', 
           description: '(dark) Link Color - can use any color value',
         }),
+
+        customCSS: fields.text({ label: 'Custom CSS', multiline: true }),
+
+        
       },
     }),
 

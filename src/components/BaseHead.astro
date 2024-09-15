@@ -1,10 +1,8 @@
 ---
 import type { SiteMeta } from "@/types";
-
 import { siteConfig } from "@/site-config";
 import { getEntry } from 'astro:content';
 import "../styles/global.css";
-// import "../styles/global1.css";
 
 type Props = SiteMeta;
 
@@ -31,8 +29,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://example.
 <title>{siteTitle}</title>
 
 {/* Icons / Favicon */}
-<!-- <link href="/favicon.ico?ver=new1" rel="icon" sizes="any" /> -->
- 
 <link href={siteSettings.data.logoImage} rel="icon" type="image/svg+xml" />
 <link href={pwaSettings.data.icon192} rel="apple-touch-icon" />
 <link href="/manifest.webmanifest" rel="manifest" />
@@ -42,8 +38,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://example.
 <meta content={siteTitle} name="title" />
 <meta content={description} name="description" />
 <meta content={siteConfig.author} name="author" />
-<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; connect-src 'self'; object-src 'self' data:;"> -->
-<!-- <meta http-equiv="Content-Security-Policy" content={`default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src 'self' * data:; media-src 'self' *; font-src 'self' *; connect-src 'self' *; object-src 'self' *; frame-src 'self' *;`}/> -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; connect-src 'self'; object-src 'self' data:;">
+
 
 <meta name="robots" content="noindex, nofollow" />
 {/* Theme Colour */}
@@ -110,7 +106,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://example.
 
 <meta content={Astro.generator} name="generator" />
 
-<!-- updated for LH -->
 <meta name="mobile-web-app-capable" content="yes">
 
 <link rel="apple-touch-startup-image" href="/images/siteimages/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
