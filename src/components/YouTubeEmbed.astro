@@ -126,9 +126,9 @@ const playerVars: { [key: string]: number | string } = {
           centerControls.style.opacity = '0';
           setTimeout(() => {
             controls.style.opacity = '0';
-          }, 1500);
+          }, 800);
         }
-      }, 1500);
+      }, 1200);
     } else {
       // For non-touch devices, hide immediately when playing
       if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
