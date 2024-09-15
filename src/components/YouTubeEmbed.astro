@@ -126,11 +126,22 @@ const playerVars: { [key: string]: number | string } = {
     }, 2500);
   }
   function onPlayerReady(event) {
+    const centerControls = document.querySelector('.center-controls');
     const muteButton = document.getElementById('mute');
+    const volumeSlider = document.getElementById('volume');
     const muteIcon = muteButton.querySelector('svg');
 
     const playerArea = document.querySelector('.custom-youtube-player');
     playerArea.addEventListener('click', function() {
+      if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
+    });
+
+    centerControls.addEventListener('click', function(e) {
+      e.stopPropagation();
       if (player.getPlayerState() == YT.PlayerState.PLAYING) {
         player.pauseVideo();
       } else {
@@ -168,7 +179,8 @@ const playerVars: { [key: string]: number | string } = {
 
       updateMuteButton(); // Initial state
 
-      muteButton.addEventListener('click', function() {
+      muteButton.addEventListener('click', function(e) {
+        e.stopPropagation();
         const currentTime = player.getCurrentTime();
         if (player.isMuted()) {
           player.unMute();
@@ -211,9 +223,9 @@ const playerVars: { [key: string]: number | string } = {
 
       updateProgressBar();
     }
-    const volumeSlider = document.getElementById('volume');
     if (volumeSlider) {
-      volumeSlider.addEventListener('input', function() {
+      volumeSlider.addEventListener('input', function(e) {
+        e.stopPropagation();
         updateSliderBackground(this);
         player.setVolume(this.value);
       });
