@@ -111,11 +111,13 @@ const playerVars: { [key: string]: number | string } = {
 
   function hideControls() {
     const controls = document.querySelector('.custom-controls');
+    controls.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    clearTimeout(controlsTimeout);
     controlsTimeout = setTimeout(() => {
       if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
         controls.style.opacity = '0';
       }
-    }, 3000);
+    }, 300);
   }
 
   function onPlayerReady(event) {
@@ -306,6 +308,7 @@ const playerVars: { [key: string]: number | string } = {
     padding: 0;
     position: relative;
     color:#fff;
+    background:#222;
   }
   #youtube-player {
 
@@ -321,9 +324,9 @@ const playerVars: { [key: string]: number | string } = {
     flex-direction: column;
     justify-content: space-around;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 1);
     opacity: 0;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.15s ease;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
   }
