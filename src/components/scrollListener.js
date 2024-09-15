@@ -14,5 +14,4 @@ document.addEventListener('DOMContentLoaded', () => {
       const scrollAmount = event.deltaY * scrollMultiplier;
       target.scrollLeft += scrollAmount;
     }
-  }, { passive: false });
-});
+  }, { passive: false });});
