@@ -105,21 +105,26 @@ const playerVars: { [key: string]: number | string } = {
 
   function showControls() {
     const controls = document.querySelector('.custom-controls');
+    const centerControls = document.querySelector('.center-controls');
     controls.style.opacity = '1';
+    centerControls.style.opacity = '1';
     clearTimeout(controlsTimeout);
   }
 
   function hideControls() {
     const controls = document.querySelector('.custom-controls');
-    controls.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    const centerControls = document.querySelector('.center-controls');
+    const bottomTray = document.querySelector('.bottom-tray');
+
+    centerControls.style.opacity = '0';
+  
     clearTimeout(controlsTimeout);
     controlsTimeout = setTimeout(() => {
       if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
         controls.style.opacity = '0';
       }
-    }, 300);
+    }, 2500);
   }
-
   function onPlayerReady(event) {
     const muteButton = document.getElementById('mute');
     const muteIcon = muteButton.querySelector('svg');
@@ -324,9 +329,9 @@ const playerVars: { [key: string]: number | string } = {
     flex-direction: column;
     justify-content: space-around;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
-    transition: opacity 0.3s ease, background-color 0.15s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
   }
@@ -343,6 +348,9 @@ const playerVars: { [key: string]: number | string } = {
     align-items: center;
     justify-content: center;
     height: 100%;
+    transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
+    background:#000;
   }
   .play-pause-button {
     font-size: 3rem;
