@@ -114,18 +114,17 @@ const playerVars: { [key: string]: number | string } = {
   function hideControls() {
     const controls = document.querySelector('.custom-controls');
     const centerControls = document.querySelector('.center-controls');
-    const bottomTray = document.querySelector('.bottom-tray');
-
-    centerControls.style.opacity = '0';
   
     clearTimeout(controlsTimeout);
     controlsTimeout = setTimeout(() => {
       if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
-        controls.style.opacity = '0';
+        centerControls.style.opacity = '0';
+        setTimeout(() => {
+          controls.style.opacity = '0';
+        }, 1000);
       }
-    }, 2500);
-  }
-  function onPlayerReady(event) {
+    }, 3000);
+  }  function onPlayerReady(event) {
     const centerControls = document.querySelector('.center-controls');
     const muteButton = document.getElementById('mute');
     const volumeSlider = document.getElementById('volume');
@@ -191,7 +190,25 @@ const playerVars: { [key: string]: number | string } = {
         updateMuteButton();
       });
 
+      muteButton.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        const currentTime = player.getCurrentTime();
+        if (player.isMuted()) {
+          player.unMute();
+        } else {
+          player.mute();
+        }
+        player.seekTo(currentTime, true);
+        updateMuteButton();
+      });
+
       player.addEventListener('onVolumeChange', updateMuteButton);
+    }
+    if (volumeSlider) {
+      volumeSlider.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        // Existing volume logic
+      });
     }
     if (progressBar) {
       player.addEventListener('onStateChange', function(event) {
@@ -210,7 +227,6 @@ const playerVars: { [key: string]: number | string } = {
         const time = player.getDuration() * (this.value / 100);
         player.seekTo(time, true);
       });
-
       // Update progress bar continuously
       function updateProgressBar() {
         if (player && player.getCurrentTime && player.getDuration) {
@@ -384,7 +400,7 @@ const playerVars: { [key: string]: number | string } = {
     width:100%;
     justify-content: center;
     gap:1vw;
-    z-index: 2;
+    z-index: 10;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     max-width: 600px;
@@ -392,6 +408,11 @@ const playerVars: { [key: string]: number | string } = {
     padding:0 3% 50px 3%;
   }
   
+
+  #mute, #volume {
+    z-index: 11;
+    position: relative;
+  }
 
   #mute{color:var(--theme-accent2);}
 
