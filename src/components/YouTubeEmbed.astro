@@ -39,6 +39,9 @@ const playerVars: { [key: string]: number | string } = {
   playlist: videoId ?? '',
 };
 
+
+
+
 ---
 
 {useCustomPlayer ? (
@@ -88,6 +91,7 @@ const playerVars: { [key: string]: number | string } = {
 )}
 
 <script define:vars={{ videoId, playerVars, start, end, loop }}>
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   let player;
   let controlsTimeout;
 
@@ -110,21 +114,30 @@ const playerVars: { [key: string]: number | string } = {
     centerControls.style.opacity = '1';
     clearTimeout(controlsTimeout);
   }
-
   function hideControls() {
     const controls = document.querySelector('.custom-controls');
     const centerControls = document.querySelector('.center-controls');
   
     clearTimeout(controlsTimeout);
-    controlsTimeout = setTimeout(() => {
+
+    if (isTouchDevice) {
+      controlsTimeout = setTimeout(() => {
+        if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
+          centerControls.style.opacity = '0';
+          setTimeout(() => {
+            controls.style.opacity = '0';
+          }, 2000);
+        }
+      }, 3000);
+    } else {
+      // For non-touch devices, hide immediately when playing
       if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
         centerControls.style.opacity = '0';
-        setTimeout(() => {
-          controls.style.opacity = '0';
-        }, 50);
+        controls.style.opacity = '0';
       }
-    }, 100);
-  }  function onPlayerReady(event) {
+    }
+  }
+    function onPlayerReady(event) {
     const centerControls = document.querySelector('.center-controls');
     const muteButton = document.getElementById('mute');
     const volumeSlider = document.getElementById('volume');
@@ -190,25 +203,7 @@ const playerVars: { [key: string]: number | string } = {
         updateMuteButton();
       });
 
-      muteButton.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        const currentTime = player.getCurrentTime();
-        if (player.isMuted()) {
-          player.unMute();
-        } else {
-          player.mute();
-        }
-        player.seekTo(currentTime, true);
-        updateMuteButton();
-      });
-
       player.addEventListener('onVolumeChange', updateMuteButton);
-    }
-    if (volumeSlider) {
-      volumeSlider.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        // Existing volume logic
-      });
     }
     if (progressBar) {
       player.addEventListener('onStateChange', function(event) {
@@ -227,6 +222,7 @@ const playerVars: { [key: string]: number | string } = {
         const time = player.getDuration() * (this.value / 100);
         player.seekTo(time, true);
       });
+
       // Update progress bar continuously
       function updateProgressBar() {
         if (player && player.getCurrentTime && player.getDuration) {
@@ -271,8 +267,13 @@ const playerVars: { [key: string]: number | string } = {
       });
     }
     const controls = document.querySelector('.custom-controls');
-    controls.addEventListener('touchstart', showControls);
-    controls.addEventListener('touchend', hideControls);
+    if (isTouchDevice) {
+      controls.addEventListener('touchstart', showControls);
+      controls.addEventListener('touchend', hideControls);
+    } else {
+      controls.addEventListener('mouseenter', showControls);
+      controls.addEventListener('mouseleave', hideControls);
+    }
     player.addEventListener('onStateChange', function(event) {
       if (event.data === YT.PlayerState.PLAYING) {
         hideControls();
