@@ -14,12 +14,18 @@ import markdoc from "@astrojs/markdoc";
 import keystatic from '@keystatic/astro';
 import netlify from "@astrojs/netlify";
 import vercel from '@astrojs/vercel/serverless';
-import { reader } from './src/keystatic-data';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from './keystatic.config';
 
+export const reader = createReader(process.cwd(), keystaticConfig);
 const isVercel = !!process.env.VERCEL;
 
 const adapter = isVercel ? vercel() : netlify();
-const pwaConfig = await reader.singletons.pwaSettings.read() || {
+
+const pwaSettings = await reader.singletons.pwaSettings.read();
+console.log('PWA Settings:', pwaSettings);
+
+const pwaConfig = pwaSettings || {
   startUrl: '/',
   name: 'PIRATE',
   shortName: 'PIRATE',
@@ -28,11 +34,10 @@ const pwaConfig = await reader.singletons.pwaSettings.read() || {
   backgroundColor: '#ffffff',
   display: 'standalone',
   icon192: '/icon-192x192.png',
-  icon512: '/icon-512x192.png',
+  icon512: '/icon-512x512.png',
   siteUrl: 'https://example.com'
 };
 
-// Then use pwaConfig in your configuration as before
 const output = isVercel ? 'server' : 'hybrid';
 
 export default defineConfig({
