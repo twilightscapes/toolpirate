@@ -16,12 +16,10 @@ import netlify from "@astrojs/netlify";
 import vercel from '@astrojs/vercel/serverless';
 import { reader } from './src/keystatic-data';
 
-
-
-// Determine the adapter and output based on the environment
 const isVercel = !!process.env.VERCEL;
+
 const adapter = isVercel ? vercel() : netlify();
-const pwaConfig = (await reader.singletons.pwaSettings.read()) || {
+const pwaConfig = await reader.singletons.pwaSettings.read() || {
   startUrl: '/',
   name: 'PIRATE',
   shortName: 'PIRATE',
@@ -30,7 +28,7 @@ const pwaConfig = (await reader.singletons.pwaSettings.read()) || {
   backgroundColor: '#ffffff',
   display: 'standalone',
   icon192: '/icon-192x192.png',
-  icon512: '/icon-512x512.png',
+  icon512: '/icon-512x192.png',
   siteUrl: 'https://example.com'
 };
 
@@ -69,8 +67,7 @@ export default defineConfig({
           type: 'image/png'
         }
       ]
-    },
-    workbox: {
+    },    workbox: {
       maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
     }
   }), 
@@ -124,3 +121,5 @@ function rawFonts(ext: string[]) {
     },
   };
 }
+
+
