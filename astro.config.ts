@@ -18,12 +18,13 @@ import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from './keystatic.config';
 
 export const reader = createReader(process.cwd(), keystaticConfig);
-const isVercel = !!process.env.VERCEL;
 
+const isVercel = !!process.env.VERCEL;
 const adapter = isVercel ? vercel() : netlify();
+const output = isVercel ? 'server' : 'hybrid';
 
 const pwaSettings = await reader.singletons.pwaSettings.read();
-console.log('PWA Settings:', pwaSettings);
+
 
 const pwaConfig = pwaSettings || {
   startUrl: '/',
@@ -38,7 +39,7 @@ const pwaConfig = pwaSettings || {
   siteUrl: 'https://example.com'
 };
 
-const output = isVercel ? 'server' : 'hybrid';
+
 
 export default defineConfig({
   image: {
