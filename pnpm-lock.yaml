@@ -33,14 +33,14 @@ importers:
         specifier: ^7.8.1
         version: 7.8.1(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(react@18.3.1)
       '@keystar/ui':
-        specifier: ^0.7.10
-        version: 0.7.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.7.11
+        version: 0.7.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@keystatic/astro':
         specifier: ^5.0.0
-        version: 5.0.0(@keystatic/core@0.5.34(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 5.0.0(@keystatic/core@0.5.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@keystatic/core':
-        specifier: ^0.5.34
-        version: 0.5.34(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.5.35
+        version: 0.5.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@reach/router':
         specifier: ^1.3.4
         version: 1.3.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -114,11 +114,11 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
       stripe:
-        specifier: ^16.10.0
-        version: 16.10.0
+        specifier: ^16.11.0
+        version: 16.11.0
       yet-another-react-lightbox:
-        specifier: ^3.21.4
-        version: 3.21.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.21.5
+        version: 3.21.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.3
@@ -154,11 +154,11 @@ importers:
         specifier: ^0.4.3
         version: 0.4.3(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(vite-plugin-pwa@0.20.5(vite@5.4.3(@types/node@22.5.4)(terser@5.32.0))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0))
       astro-eslint-parser:
-        specifier: ^1.0.2
+        specifier: ^1.0.3
         version: 1.0.3(typescript@5.6.2)
       autoprefixer:
         specifier: ^10.4.20
-        version: 10.4.20(postcss@8.4.45)
+        version: 10.4.20(postcss@8.4.47)
       eslint:
         specifier: ^9.10.0
         version: 9.10.0(jiti@1.21.6)
@@ -166,7 +166,7 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(@typescript-eslint/parser@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2))(eslint-plugin-import@2.30.0)(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-astro:
-        specifier: ^1.2.3
+        specifier: ^1.2.4
         version: 1.2.4(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)
       eslint-plugin-deprecation:
         specifier: ^3.0.0
@@ -181,7 +181,7 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-perfectionist:
-        specifier: ^3.5.0
+        specifier: ^3.6.0
         version: 3.6.0(astro-eslint-parser@1.0.3(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)
       eslint-plugin-regexp:
         specifier: ^2.6.0
@@ -196,14 +196,14 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       postcss:
-        specifier: ^8.4.45
-        version: 8.4.45
+        specifier: ^8.4.47
+        version: 8.4.47
       postcss-html:
         specifier: ^1.7.0
         version: 1.7.0
       postcss-import:
         specifier: ^16.1.0
-        version: 16.1.0(postcss@8.4.45)
+        version: 16.1.0(postcss@8.4.47)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -1391,8 +1391,8 @@ packages:
   '@juggle/resize-observer@3.4.0':
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
 
-  '@keystar/ui@0.7.10':
-    resolution: {integrity: sha512-b/WDvMdS9FRn0FQeeNlutE4BZv2MY00fxTCClWiW05IU9P6mP7/AHLhitNXHKOGuWn31aN3IAlkJFC+4q6YycQ==}
+  '@keystar/ui@0.7.11':
+    resolution: {integrity: sha512-lBAKglgCsYOj3pYiOnCr14jvKHIvbnaCxkCKCHGsl15nOjRbKylAwbbMvd3vi/cUyXe+qX3kdn/YtAbVwkyjCg==}
     peerDependencies:
       next: '>=14'
       react: ^18.2.0
@@ -1409,8 +1409,8 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
 
-  '@keystatic/core@0.5.34':
-    resolution: {integrity: sha512-h57C+J+rBBX4JnO5VVzeZMJENLeYu1NirJHXvnhWbsnFP6/kaiEZ9ShrxiBiXMzsaoL9i682mes0iR9PWqrOrQ==}
+  '@keystatic/core@0.5.35':
+    resolution: {integrity: sha512-Ki4xm4eqhralqM/ugV2kQjdp5dN4d/9pWEG2eyftbzgBVeGAohxFDlXyfUiSJXW1YlX+P4+tUmJMjlCHZQHU7w==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -4840,8 +4840,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.4.45:
-    resolution: {integrity: sha512-7KTLTdzdZZYscUc65XmjFiB73vBhBfbPztCYdUNvlaso9PrzjzcmjqBPR0lNGkcVlcO4BjiO5rK/qNz+XAen1Q==}
+  postcss@8.4.47:
+    resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   preferred-pm@4.0.0:
@@ -5435,8 +5435,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  stripe@16.10.0:
-    resolution: {integrity: sha512-H0qeSCkZVvk4fVchUbg0rNNviwOyw3Rsr9X6MKe84ajBeMz4ogEOZykaUcb/n0GSdvWlXAtbnB1gxl3xOlH+ZA==}
+  stripe@16.11.0:
+    resolution: {integrity: sha512-Rl4S2UAU/uWr3diETk3wkpXSe7LBPJ4BdXRzto5XVGGUhvLi8Q0MShwI5yhPH6Cdv2kmLu/Yl14QMlHgeRp7Qw==}
     engines: {node: '>=12.*'}
 
   strnum@1.0.5:
@@ -6107,8 +6107,8 @@ packages:
   yauzl@2.10.0:
     resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
 
-  yet-another-react-lightbox@3.21.4:
-    resolution: {integrity: sha512-xlYs+F8it8DhCRXcgwXFh58HOuGpNFWmBqaUoo1gkZvHpCaiGAEkAUfAIRz9+sWEcZLSK45zB65+n3gDjjuz1Q==}
+  yet-another-react-lightbox@3.21.5:
+    resolution: {integrity: sha512-ri73f6IMZD2UC7fdkmhNeDVh+1GZWeAnoSUHII/nyRovcRkUM+OwVAhwl1d5ZoNFGKjd+nHNMroAaoQONqRDZQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8.0'
@@ -6323,9 +6323,9 @@ snapshots:
   '@astrojs/tailwind@5.1.0(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(tailwindcss@3.4.11)':
     dependencies:
       astro: 4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2)
-      autoprefixer: 10.4.20(postcss@8.4.45)
-      postcss: 8.4.45
-      postcss-load-config: 4.0.2(postcss@8.4.45)
+      autoprefixer: 10.4.20(postcss@8.4.47)
+      postcss: 8.4.47
+      postcss-load-config: 4.0.2(postcss@8.4.47)
       tailwindcss: 3.4.11
     transitivePeerDependencies:
       - ts-node
@@ -7352,8 +7352,8 @@ snapshots:
       hast-util-to-html: 9.0.2
       hast-util-to-text: 4.0.2
       hastscript: 9.0.0
-      postcss: 8.4.45
-      postcss-nested: 6.2.0(postcss@8.4.45)
+      postcss: 8.4.47
+      postcss-nested: 6.2.0(postcss@8.4.47)
       unist-util-visit: 5.0.0
       unist-util-visit-parents: 6.0.1
 
@@ -7591,7 +7591,7 @@ snapshots:
 
   '@juggle/resize-observer@3.4.0': {}
 
-  '@keystar/ui@0.7.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@keystar/ui@0.7.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.25.6
       '@emotion/css': 11.13.0
@@ -7684,10 +7684,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@keystatic/astro@5.0.0(@keystatic/core@0.5.34(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@keystatic/astro@5.0.0(@keystatic/core@0.5.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(astro@4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.25.6
-      '@keystatic/core': 0.5.34(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@keystatic/core': 0.5.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react': 18.3.5
       astro: 4.15.4(@types/node@22.5.4)(rollup@2.79.1)(terser@5.32.0)(typescript@5.6.2)
       cookie: 0.5.0
@@ -7695,7 +7695,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       set-cookie-parser: 2.7.0
 
-  '@keystatic/core@0.5.34(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@keystatic/core@0.5.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.25.6
       '@braintree/sanitize-url': 6.0.4
@@ -7703,7 +7703,7 @@ snapshots:
       '@emotion/weak-memoize': 0.3.1
       '@floating-ui/react': 0.24.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@internationalized/string': 3.2.3
-      '@keystar/ui': 0.7.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@keystar/ui': 0.7.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@markdoc/markdoc': 0.4.0(@types/react@18.3.5)(react@18.3.1)
       '@react-aria/focus': 3.18.2(react@18.3.1)
       '@react-aria/i18n': 3.12.2(react@18.3.1)
@@ -9490,9 +9490,9 @@ snapshots:
   astro-eslint-parser@1.0.3(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
-      '@typescript-eslint/scope-manager': 7.18.0
-      '@typescript-eslint/types': 7.18.0
-      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.6.2)
+      '@typescript-eslint/scope-manager': 8.5.0
+      '@typescript-eslint/types': 8.5.0
+      '@typescript-eslint/typescript-estree': 8.5.0(typescript@5.6.2)
       astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.10.3)
       debug: 4.3.7
       entities: 4.5.0
@@ -9616,14 +9616,14 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  autoprefixer@10.4.20(postcss@8.4.45):
+  autoprefixer@10.4.20(postcss@8.4.47):
     dependencies:
       browserslist: 4.23.3
       caniuse-lite: 1.0.30001659
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.0
-      postcss: 8.4.45
+      postcss: 8.4.47
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -10305,12 +10305,12 @@ snapshots:
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.10.0(jiti@1.21.6))
       '@jridgewell/sourcemap-codec': 1.5.0
-      '@typescript-eslint/types': 7.18.0
+      '@typescript-eslint/types': 8.5.0
       astro-eslint-parser: 1.0.3(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.6)
       eslint-compat-utils: 0.5.1(eslint@9.10.0(jiti@1.21.6))
       globals: 15.9.0
-      postcss: 8.4.45
+      postcss: 8.4.47
       postcss-selector-parser: 6.1.2
     transitivePeerDependencies:
       - supports-color
@@ -12245,43 +12245,43 @@ snapshots:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 9.0.0
-      postcss: 8.4.45
-      postcss-safe-parser: 6.0.0(postcss@8.4.45)
+      postcss: 8.4.47
+      postcss-safe-parser: 6.0.0(postcss@8.4.47)
 
-  postcss-import@15.1.0(postcss@8.4.45):
+  postcss-import@15.1.0(postcss@8.4.47):
     dependencies:
-      postcss: 8.4.45
+      postcss: 8.4.47
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-import@16.1.0(postcss@8.4.45):
+  postcss-import@16.1.0(postcss@8.4.47):
     dependencies:
-      postcss: 8.4.45
+      postcss: 8.4.47
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.4.45):
+  postcss-js@4.0.1(postcss@8.4.47):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.45
+      postcss: 8.4.47
 
-  postcss-load-config@4.0.2(postcss@8.4.45):
+  postcss-load-config@4.0.2(postcss@8.4.47):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.5.1
     optionalDependencies:
-      postcss: 8.4.45
+      postcss: 8.4.47
 
-  postcss-nested@6.2.0(postcss@8.4.45):
+  postcss-nested@6.2.0(postcss@8.4.47):
     dependencies:
-      postcss: 8.4.45
+      postcss: 8.4.47
       postcss-selector-parser: 6.1.2
 
-  postcss-safe-parser@6.0.0(postcss@8.4.45):
+  postcss-safe-parser@6.0.0(postcss@8.4.47):
     dependencies:
-      postcss: 8.4.45
+      postcss: 8.4.47
 
   postcss-selector-parser@6.0.10:
     dependencies:
@@ -12295,7 +12295,7 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.4.45:
+  postcss@8.4.47:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.0
@@ -13000,7 +13000,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stripe@16.10.0:
+  stripe@16.11.0:
     dependencies:
       '@types/node': 22.5.4
       qs: 6.13.0
@@ -13076,11 +13076,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.0
-      postcss: 8.4.45
-      postcss-import: 15.1.0(postcss@8.4.45)
-      postcss-js: 4.0.1(postcss@8.4.45)
-      postcss-load-config: 4.0.2(postcss@8.4.45)
-      postcss-nested: 6.2.0(postcss@8.4.45)
+      postcss: 8.4.47
+      postcss-import: 15.1.0(postcss@8.4.47)
+      postcss-js: 4.0.1(postcss@8.4.47)
+      postcss-load-config: 4.0.2(postcss@8.4.47)
+      postcss-nested: 6.2.0(postcss@8.4.47)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -13374,7 +13374,7 @@ snapshots:
   vite@5.4.3(@types/node@22.5.4)(terser@5.32.0):
     dependencies:
       esbuild: 0.21.5
-      postcss: 8.4.45
+      postcss: 8.4.47
       rollup: 4.21.2
     optionalDependencies:
       '@types/node': 22.5.4
@@ -13781,7 +13781,7 @@ snapshots:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
 
-  yet-another-react-lightbox@3.21.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  yet-another-react-lightbox@3.21.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
