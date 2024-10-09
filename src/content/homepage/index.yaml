@@ -6,7 +6,7 @@ youtube:
   discriminant: true
   value:
     url: https://youtu.be/RsDXxIXGIq4?si=5mzJcdnjAA22ySKK
-    title: Welcome to Tool Shed!
+    title: Welcome to TOOL SHED
     controls: false
     useCustomPlayer: true
     mute: true
@@ -22,10 +22,10 @@ showMore: false
 showFaqOnHome: false
 showTestOnHome: false
 featureOrder: 1
-bioOrder: 2
+bioOrder: 3
 appOrder: .nan
 galleryOrder: .nan
-postsOrder: 7
+postsOrder: 2
 resumeOrder: 8
 faqOrder: 6
 testimonialsOrder: 9
@@ -35,4 +35,4 @@ infoblock3Order: 5
 photosectiontitle: Photo Gallery
 faqsectiontitle: Questions about PIRATE?
 testimonialtitle: What the dogs are sayin'
-postsectiontitle: THE VAULT
+postsectiontitle: TOOL SHED
