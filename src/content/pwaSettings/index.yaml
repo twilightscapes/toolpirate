@@ -1,11 +1,12 @@
-showRobots: true
-siteUrl: https://tool.pirateyoutube.com
-name: Tool Shed
-shortName: Tool Shed
-description: A video site for the band Tool
-themeColor: '#000'
-backgroundColor: '#000'
-startUrl: posts
+showRobots: false
+siteUrl: https://pirateweb.org
+name: PIRATE
+shortName: PIRATE
+screenshot: /images/pwa/screenshot.png
+description: Become A PIRATE!
+themeColor: rgba(0, 0, 0, 1)
+backgroundColor: rgba(0, 0, 0, 1)
+startUrl: /
 display: standalone
 icon192: /images/pwa/icon192.webp
 icon512: /images/pwa/icon512.webp

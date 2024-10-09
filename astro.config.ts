@@ -3,7 +3,6 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-// import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import fs from "fs";
 import rehypeExternalLinks from "rehype-external-links";
@@ -30,25 +29,21 @@ const pwaConfig = pwaSettings || {
   startUrl: '/',
   name: 'PIRATE',
   shortName: 'PIRATE',
-  description: '',
+  description: 'Your app description here',
   themeColor: '#ffffff',
   backgroundColor: '#ffffff',
   display: 'standalone',
   icon192: '/icon-192x192.png',
   icon512: '/icon-512x512.png',
-  siteUrl: 'https://example.com'
+  siteUrl: 'https://example.com',
+  screenshot: '/socialCard.webp', 
 };
 
-
-
 export default defineConfig({
-  image: {
-    domains: ["webmention.io"]
-  },
+
   integrations: [mdx(), react(), icon(), tailwind({
     applyBaseStyles: false
-  }), sitemap(), keystatic(), 
-  
+  }), sitemap(), keystatic(),
   AstroPWA({
     registerType: 'autoUpdate',
     includeAssets: ['robots.txt', 'manifest.webmanifest'],
@@ -72,12 +67,19 @@ export default defineConfig({
           sizes: '512x512',
           type: 'image/png'
         }
-      ]
-    },    workbox: {
+      ],
+      screenshots: pwaConfig.screenshot ? [
+        {
+          src: pwaConfig.screenshot,
+          sizes: '320x640',
+          type: 'image/png'
+        }
+      ] : [],
+    },
+    workbox: {
       maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
     }
-  }), 
-  
+  }),  
   markdoc()],  markdown: {
     rehypePlugins: [[rehypeExternalLinks, {
       rel: ["nofollow", "noopener", "noreferrer"],
@@ -95,6 +97,9 @@ export default defineConfig({
   },
   output: output,
   prefetch: true,
+  image: {
+		domains: ["webmention.io"],
+	},
   site: pwaConfig.siteUrl ?? 'https://example.com',  redirects: {
     '/admin': '/keystatic'
   },

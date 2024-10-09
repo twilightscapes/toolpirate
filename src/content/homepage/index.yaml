@@ -1,20 +1,38 @@
+showFeature: true
 featureImage:
   src: /images/homepage/featureImage/src.webp
   alt: Become a Pirate!
-showFeature: true
+youtube:
+  discriminant: true
+  value:
+    url: https://youtu.be/RsDXxIXGIq4?si=5mzJcdnjAA22ySKK
+    title: Welcome to Tool Shed!
+    controls: false
+    useCustomPlayer: true
+    mute: true
+    loop: true
+    start: 0
+    videoOnly: false
 showBioOnHome: true
+showApp: false
 showHomeGallery: false
+showResume: false
 showPosts: true
+showMore: false
 showFaqOnHome: false
 showTestOnHome: false
-pitch: test
+featureOrder: 1
+bioOrder: 2
+appOrder: .nan
+galleryOrder: .nan
+postsOrder: 7
+resumeOrder: 8
+faqOrder: 6
+testimonialsOrder: 9
+infoblockOrder: 3
+infoblock2Order: 4
+infoblock3Order: 5
+photosectiontitle: Photo Gallery
+faqsectiontitle: Questions about PIRATE?
+testimonialtitle: What the dogs are sayin'
 postsectiontitle: THE VAULT
-youtube:
-  url: https://youtu.be/RsDXxIXGIq4?si=5mzJcdnjAA22ySKK
-  title: TOOL SHED
-  controls: false
-  useCustomPlayer: true
-  mute: true
-  loop: true
-  start: .nan
-  end: .nan

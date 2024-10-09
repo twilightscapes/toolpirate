@@ -4,11 +4,6 @@ const styleAppearance = await getEntry('styleapps', 'index');
 
 const customCSS = styleAppearance.data.customCSS || '';
 ---
-
-
-
-<style set:html={customCSS}></style>
-
 <script is:inline define:vars={{ styleAppearance }}>
   function getInitialTheme() {
     const savedTheme = localStorage.getItem('theme');
@@ -53,3 +48,4 @@ const customCSS = styleAppearance.data.customCSS || '';
     updateCurrentTheme(newTheme);
   }
 </script>
+<style set:html={customCSS}></style>

@@ -1,9 +1,9 @@
-galleryMode: keystatic
+galleryMode: directory
 showCaptions: true
 showBioOnPhotos: true
 showFaqsOnPhotos: false
 showTestimonialsOnPhotos: false
-defaultDirectory: favorites
+defaultDirectory: Favorites
 showGallerySelector: true
 galleryImages:
   - image: /images/galleryImages/0/image.webp

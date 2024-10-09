@@ -14,15 +14,22 @@ const socialLinks: {
 }[] = [
 	{
 		friendlyName: "Github",
-		link: "https://github.com/chrismwilliams/astro-pirate",
+		link: "https://github.com/piratesocial/",
 		name: "mdi:github",
+		isWebmention: true,
+	},
+	{
+		friendlyName: "Twitter",
+		link: "https://x.com/toddlambert/",
+		name: "mdi:twitter",
+		isWebmention: true,
 	},
 ];
 ---
 
-<div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on</p>
+<div class="flex flex-wrap items-end gap-x-2" style="justify-content:center;">
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
+
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
 				<li class="flex">

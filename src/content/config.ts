@@ -23,11 +23,19 @@ const postSchema = z.object({
   tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
   draft: z.boolean().default(false),
   updatedDate: z
-    .string()
+    .date()
     .optional()
     .transform((str) => (str ? new Date(str) : undefined)),
   ogImage: z.string().optional(),
   videoOnly: z.boolean().optional(),
+  externalUrl: z.string().optional(),
+
+
+  order: z.object({
+    discriminant: z.boolean(),
+    value: z.number().optional(),
+  }).optional(),
+  
   youtube: z.object({
     discriminant: z.boolean(),
     value: z.object({
@@ -49,6 +57,7 @@ const postCollection = defineCollection({
   }),
   type: "content",
 });
+
 
 const faqs = defineCollection({
   type: 'content',
@@ -80,9 +89,9 @@ const home = defineCollection({
     description: z.string(),
     phone: z.string().optional(),
     subheading: z.string().optional(),
-    subcontent: z.string().optional(),
-    subcta: z.string().optional(),
     faqtitle: z.string().optional(),
+    showMore: z.string().optional(),
+    showApp: z.string().optional(),
     testimonialtitle: z.string().optional(),
     postsectiontitle: z.string().optional(),
     featureImage: z.object({
@@ -95,17 +104,18 @@ const home = defineCollection({
         url: z.string().optional(),
         title: z.string().optional(),
         controls: z.boolean().optional(),
+        useCustomPlayer: z.boolean().optional(),
         mute: z.boolean().optional(),
         loop: z.boolean().optional(),
         start: z.number().optional(),
         end: z.number().optional(),
-        useCustomPlayer: z.boolean().optional(),
         videoOnly: z.boolean().optional(),
+        cta: z.string().optional(),
+
       }).optional()
     }).optional(),
   }),
-});
-const siteSettings = defineCollection({
+});const siteSettings = defineCollection({
   type: 'data',
   schema: z.object({
     showHeader: z.boolean().optional(),
@@ -121,9 +131,13 @@ const siteSettings = defineCollection({
     showFAQ: z.boolean().optional(),
     showFooter: z.boolean().optional(),
     showTitles: z.boolean().optional(),
+    showTags: z.boolean().optional(),
+    enableImageBlur: z.boolean().optional(),
     showDates: z.boolean().optional(),
     showHomeGallery: z.boolean().optional(),
     MAX_POSTS: z.number().optional(),
+    MAX_POSTS_PER_PAGE: z.number().optional(),
+    showShare: z.boolean().optional(),
     logoImage: z.string().optional(),
     defaultView: z.enum(['grid', 'swipe']).optional(),
   }),
@@ -141,7 +155,8 @@ const pwaSettings = defineCollection({
     startUrl: z.string(),
     display: z.enum(['standalone', 'fullscreen', 'minimal-ui', 'browser']),
     icon192: z.string(),
-    icon512: z.string()
+    icon512: z.string(),
+    screenshot: z.string().optional(),
   })
 });
 
@@ -198,13 +213,69 @@ const language = defineCollection({
     volume: z.string().optional(),
     tags: z.string().optional(),
     viewall: z.string().optional(),
-    goback: z.string().optional()
+    goback: z.string().optional(),
+    shareText: z.string().optional(),
+    copyButton: z.string().optional()
   }),
 });
+
+const social = defineCollection({
+  type: 'data',
+  schema: z.object({
+    profile: z.string().optional(),
+  }),
+});
+
 
 const post = defineCollection({
   type: 'content',
   schema: postSchema
+});
+
+const pitches = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string().optional(),
+    showTitle: z.boolean().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    description: z.string().optional(),
+    tagline: z.string().optional(),
+    subheading1: z.string().optional(),
+    text1: z.string().optional(),
+    subheading2: z.string().optional(),
+    subheading3: z.string().optional(),
+    text2: z.string().optional(),
+    text3: z.string().optional(),
+  }),
+});
+
+const CTAs = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    ctaUrl: z.string(),
+    description: z.string().optional(),
+    showFancy: z.boolean().optional(),
+  }),
+});
+
+const resume = defineCollection({
+  type: 'content',
+  schema: z.object({
+    section: z.string(),
+    showTitle: z.boolean().optional()
+  }),
+});
+
+const resumeSettings = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string().optional(),
+    showTitle: z.boolean().optional(),
+    leftColumnItems: z.array(z.string()),
+    rightColumnItems: z.array(z.string()),
+  }),
 });
 
 export const collections = {
@@ -214,5 +285,31 @@ export const collections = {
   home, 
   siteSettings, 
   pwaSettings,
-  menuItems
+  menuItems,
+  pitches,
+  CTAs: CTAs,
+  resume,
+  resumeSettings,
 };
+
+
+
+export type PitchData = {
+  slug: string;
+  showTitle: boolean | null;
+  tagline: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  subheading1: string;
+  subheading2: string;
+  subheading3: string;
+  image: string | null;
+  imageAlt: string;
+  description: string;
+  title: string | null;
+  divider: string | null;
+  divider2: string | null;
+};
+
+
