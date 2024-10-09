@@ -121,6 +121,7 @@ const home = defineCollection({
     showHeader: z.boolean().optional(),
     showLogo: z.boolean().optional(),
     showHome: z.boolean().optional(),
+    showCheck: z.boolean().optional(),
     showTheme: z.boolean().optional(),
     showSwitch: z.boolean().optional(),
     showSearch: z.boolean().optional(),

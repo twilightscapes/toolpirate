@@ -7,7 +7,7 @@ import { getEntry } from 'astro:content';
 import { getMenuLinks, siteConfig } from "@/site-config";
 import GoBack from "@/components/GoBack.astro";
 const siteSettings = await getEntry('siteSettings', 'main');
-const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, logoImage, defaultView } = siteSettings.data;
+const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, showCheck, logoImage, defaultView } = siteSettings.data;
 
 
 // const language = await getEntry('language', 'index');
@@ -62,10 +62,10 @@ const menuLinks = await getMenuLinks();
   </div>
 )}
 
-<div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-between items-center gap-3 pr-2.5" style="">
+<div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-center items-center gap-10 pr-2.5" style="">
   
 
-<!-- <BlueCheck /> -->
+  {showCheck && <BlueCheck />}
 
 
 
@@ -98,7 +98,7 @@ const menuLinks = await getMenuLinks();
 
 
 
-<GoBack />
+<div style="position:relative; left:0;"><GoBack /></div>
 
 </div>
 
