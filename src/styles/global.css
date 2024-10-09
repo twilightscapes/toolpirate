@@ -234,9 +234,10 @@ body {
 	  
 	  header.header {height:0;}
 
-	  #missioncontrol{line-height: 1; position:fixed; bottom:0; left:0; right:0; z-index:10; color:#fff; fill:#fff; background: var(--theme-header); padding:1vh 2vw; border-radius:var(--border-radius); border-bottom-right-radius: 0; border-bottom-left-radius: 0; opacity:.95; }
+	  #missioncontrol{line-height: 1; position:fixed; bottom:0; left:0; right:0; z-index:10; color:#fff; fill:#fff; background: var(--theme-header);  border-radius:var(--border-radius); border-bottom-right-radius: 0; border-bottom-left-radius: 0; opacity:.95; padding:0 1vw; }
 	  
-	  
+	  #missioncontrol button{margin-top:1vh; margin-bottom:1vh;}
+
 	  .flexbutt{display:flex; }
 	  .flexcheek{
 		/* position:-webkit-sticky;position:sticky;top:0; */
@@ -247,6 +248,7 @@ body {
 		align-items:center;
 		justify-content: center;
 		padding: .5vh .5vw;
+		margin-right:1vw;
 		background: var(--theme-header);
 		color:#ddd;
 		border-radius:var(--border-radius);

@@ -1,9 +1,9 @@
 logoImage: /images/logo/logoImage.svg
 showHeader: false
 showLogo: false
-showHome: false
-showTheme: false
-showSwitch: false
+showHome: true
+showTheme: true
+showSwitch: true
 showSearch: false
 showFooter: false
 defaultView: swipe
