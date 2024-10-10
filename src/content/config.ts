@@ -274,6 +274,8 @@ const resumeSettings = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     showTitle: z.boolean().optional(),
+    name: z.string().optional(),
+    contact: z.string().optional(),
     leftColumnItems: z.array(z.string()),
     rightColumnItems: z.array(z.string()),
   }),

@@ -704,6 +704,9 @@ export default config({
       schema: {
         title: fields.text({ label: 'Resume Title' }),
         showTitle: fields.checkbox({ label: 'Show Title', defaultValue: true }),
+        name: fields.text({ label: 'Your Name' }),
+        contact: fields.text({ label: 'Your Contact Details', description:'Enter your email address or phone number - (injected into print style sheet to prevent bots)' }),
+        
         leftColumnItems: fields.array(
           fields.relationship({
             label: 'Left Column Item',

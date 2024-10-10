@@ -227,6 +227,8 @@ const sections: Section[] = [
     component: InfoBlock 
   },
   createSection('resume', homepage?.showResume, homepage?.resumeOrder, Resume, 11),
+
+  
 ];
 
 const sortedSections = sections  .filter(section => section.show)
@@ -249,7 +251,7 @@ flex-direction: column;
 <PageLayout title={homeContent.data.title} description={pwaSettings.data.description}>
 	<div class="scroll-snap-container flex flex-col home">
 		{sortedSections.map(section => (
-			<section>
+			<section class={section.name === 'resume' ? 'resume' : ''}>
 				{(() => {
 					switch (section.name) {
 						case 'feature':
@@ -318,19 +320,20 @@ flex-direction: column;
 							return null;
 					}
 				})()}
+
+        
 			</section>
 		))}
     
-    {homeCTA && (
-      <section style="display:grid; place-content:center; padding:10vh 0">
-        <CTAs 
-          title={homeCTA.data.title}
-          description={homeCTA.data.description || ''}
-          ctaUrl={homeCTA.data.ctaUrl}
-          showFancy={homeCTA.data.showFancy}
-        />
-      </section>
-    )}
+    {homeCTA && (      <section style="display:grid; place-content:center; padding:10vh 0">
+      <CTAs 
+        title={homeCTA.data.title}
+        description={homeCTA.data.description || ''}
+        ctaUrl={homeCTA.data.ctaUrl}
+        showFancy={homeCTA.data.showFancy}
+      />
+    </section>
+  )}
 
 
 	</div>

@@ -27,7 +27,14 @@ const leftColumnRendered = await renderContent(leftColumn);
 const rightColumnRendered = await renderContent(rightColumn);
 ---
 
-{resumeSettings?.data?.showTitle && <h2 class="glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent" style="margin-bottom:2vh;" data-astro-cid-j7pv25f6="" data-astro-source-file="/Users/toddlambert/SITES/pirate/src/pages/index.astro" data-astro-source-loc="286:123">{resumeSettings.data.title}</h2>}
+{resumeSettings?.data?.showTitle && <h2 class="resumetitle glow text-[clamp(1.4rem,3.9vw,4rem)] shadow-text text-center theme-accent" style="margin-bottom:2vh;" data-astro-cid-j7pv25f6="" data-astro-source-file="/Users/toddlambert/SITES/pirate/src/pages/index.astro" data-astro-source-loc="286:123">{resumeSettings.data.title}</h2>}
+<div class="keyboard" style="display:flex; justify-content:center; margin:0 auto; line-height:calc(2em + .4vw);"><span style="font-weight:bold; font-size:1.3rem;">To Print:</span>  <kbd>⌘</kbd> + <kbd>p</kbd>   OR   <kbd>Ctrl</kbd> + <kbd>p</kbd></div>
+
+<ul id="details">
+  <li><h2>{resumeSettings.data.name}</h2></li>
+  <li><h3>{resumeSettings.data.contact}</h3></li>
+</ul>
+
 <div class="resume-container panel">
   <div class="left-column">
     {leftColumnRendered.map(item => (
@@ -51,6 +58,7 @@ const rightColumnRendered = await renderContent(rightColumn);
     display: flex;
     gap: 2rem;
     padding:2vw 2vh;
+    /* column-count: 2; column-gap: 20px; */
   }
   .left-column, .right-column {
     flex: 1;
@@ -68,7 +76,7 @@ const rightColumnRendered = await renderContent(rightColumn);
 
   @media (max-width: 768px) {
     .resume-container {
-      flex-direction: column;
+      display: block !important;
     }
     .left-column, .right-column {
       width: 100%;
