@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Set the URL of your central repository
+# # Set the URL of your central repository
 # THEME_REPO_URL="https://github.com/twilightscapes/pirate"
 
 # # Set the branch or tag you want to pull updates from
@@ -30,10 +30,6 @@
 # cp tmp_theme/tailwind.config.cjs .
 # cp tmp_theme/postcss.config.cjs .
 
-# # Additional files you might want to update
-# cp tmp_theme/.eslintrc.cjs .
-# cp tmp_theme/.prettierrc .
-# cp tmp_theme/.gitignore .
 
 # # Clean up
 # rm -rf tmp_theme
