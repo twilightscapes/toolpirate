@@ -1,6 +1,9 @@
 ---
+import { getEntry } from 'astro:content';
 import { Icon } from "astro-icon/components";
-
+import BlueCheck from "@/components/BlueCheck.astro";
+const siteSettings = await getEntry('siteSettings', 'main');
+const { showCheck} = siteSettings.data;
 /** 
 	Uses https://www.astroicon.dev/getting-started/
 	Find icons via guide: https://www.astroicon.dev/guides/customization/#open-source-icon-sets
@@ -29,7 +32,7 @@ const socialLinks: {
 
 <div class="flex flex-wrap items-end gap-x-2" style="justify-content:center;">
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
-
+<li class="flex">{showCheck && <BlueCheck />}</li>
 		{
 			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
 				<li class="flex">

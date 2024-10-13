@@ -2,12 +2,12 @@
 import ThemeToggle from "../ThemeToggle.astro";
 import Search from "../Search.astro";
 import Switch from "@/components/Switch.jsx";
-import BlueCheck from "@/components/BlueCheck.astro";
+// import BlueCheck from "@/components/BlueCheck.astro";
 import { getEntry } from 'astro:content';
 import { getMenuLinks, siteConfig } from "@/site-config";
 import GoBack from "@/components/GoBack.astro";
 const siteSettings = await getEntry('siteSettings', 'main');
-const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, showCheck, logoImage, defaultView } = siteSettings.data;
+const { showHeader, showLogo, showTheme, showSearch, showSwitch, showHome, logoImage, defaultView } = siteSettings.data;
 
 
 // const language = await getEntry('language', 'index');
@@ -65,7 +65,7 @@ const menuLinks = await getMenuLinks();
 <div id="missioncontrol" class="missioncontrol1 sitecontrols flex justify-center items-center gap-10 pr-2.5" style="">
   
 
-  {showCheck && <BlueCheck />}
+  
 
   {showTheme && <ThemeToggle style="margin-left:1vw;" />}
 

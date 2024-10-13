@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 import CTAs from '@/components/CTAs.astro';
 import SocialList from "@/components/SocialList.astro";
 const cta = bioContent.data.cta ? await getEntry('ctas', bioContent.data.cta) : null
-
+const showSocial = bioContent.data.showSocial
 
 ---
 <section id="profile" class="scroll-area1 w-screen  mb-5" style="backdrop-filter: blur(8px);">
@@ -60,6 +60,8 @@ const cta = bioContent.data.cta ? await getEntry('ctas', bioContent.data.cta) : 
               )}
         </div>
       </div>
-      <SocialList />
+
+
+    {showSocial && <SocialList />}
     </article>
 </sectio>
