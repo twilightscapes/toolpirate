@@ -12,6 +12,6 @@ showTitles: true
 showDates: true
 enableImageBlur: true
 showTags: true
-MAX_POSTS: 6
+MAX_POSTS: 9
 MAX_POSTS_PER_PAGE: 20
 showShare: true
