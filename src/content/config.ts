@@ -44,6 +44,8 @@ const collections = {
     schema: postSchema,
   }),
 
+
+
   pages: defineCollection({
     type: 'content',
     schema: z.object({
@@ -125,6 +127,25 @@ const collections = {
       title: z.string().optional(),
       content: z.string().optional(),
       createdAt: z.string().or(z.date()).transform((val) => new Date(val)),
+    }),
+  }),
+
+  pirateFeeds: defineCollection({
+    type: 'data',
+    schema: z.object({
+      title: z.string().optional(),
+      feedUrl: z.string().optional(),
+      order: z.number().optional(),
+    }),
+  }),
+
+  socialLinks: defineCollection({
+    type: 'data',
+    schema: z.object({
+      friendlyName: z.string().optional(),
+      link: z.string().optional(),
+      icon: z.string().optional(),
+      isWebmention: z.boolean().optional(),
     }),
   }),
 

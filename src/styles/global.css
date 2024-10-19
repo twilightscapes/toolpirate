@@ -264,9 +264,11 @@ body {
 		border-radius:var(--border-radius);
 	  }
 
-#gobacker.button{margin:0;}
+#gobacker.button{margin:0 auto; max-width: 200px;}
 
-body.home #gobacker{display: none;}
+#gobacker {position: absolute !important; top:-5vh; bottom:1vn; left:0; right:0 !important;}
+
+/* body.home #gobacker{display: none;} */
 	  /* #gobacker{position:fixed; display:flex;  right:10px; z-index:5; top:65px;} */
 	  
 	  .backimage{

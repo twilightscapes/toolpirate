@@ -59,9 +59,11 @@ const pageOgImage = ogImage || meta?.ogImage;
 	
 	<body>
 		<SkipLink />
-		
+		<div id="top"></div>
 		<Header transition:persist />
+		
 				<main id="main">
+					
 					<slot />
 				</main>
 				{ showFooter && (
@@ -71,7 +73,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 								<script>
 									function initializeScrollListener() {
 										const horizontalScrollClassName = 'horizontal-slider';
-										const scrollMultiplier = .8;
+										const scrollMultiplier = .5;
 
 										function applyScrollBehavior(element: HTMLElement) {
 											const handleWheel = (event: WheelEvent) => {
@@ -145,7 +147,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 
 		function initializeScrollListener() {
 			const horizontalScrollClassName = 'horizontal-slider';
-			const scrollMultiplier = .8;
+			const scrollMultiplier = .5;
 
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
@@ -176,7 +178,7 @@ const pageOgImage = ogImage || meta?.ogImage;
 						}, { passive: true });
 					}
 				});
-			}, { threshold: 0.1 });
+			}, { threshold: 0.5 });
 
 			document.querySelectorAll(`.${horizontalScrollClassName}`).forEach(el => {
 				observer.observe(el);

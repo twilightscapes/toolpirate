@@ -112,6 +112,34 @@ export default config({
       slugField: 'description'
     }),
 
+
+
+
+    socialLinks: collection({
+      label: 'Social Links',
+      path: 'src/content/socialLinks/*',
+      schema: {
+        friendlyName: fields.text({ label: 'Friendly Name' }),
+        link: fields.text({ label: 'Link URL' }),
+        icon: fields.select({
+          label: 'Icon',
+          options: [
+            { label: 'Twitter', value: 'mdi:twitter' },
+            { label: 'GitHub', value: 'mdi:github' },
+            { label: 'Facebook', value: 'mdi:facebook' },
+            { label: 'YouTube', value: 'mdi:youtube' },
+          ],
+          defaultValue: 'mdi:twitter'
+        }),
+        isWebmention: fields.checkbox({ label: 'Is Webmention', defaultValue: true }),
+      },
+      slugField: 'friendlyName'
+    }),
+    
+    
+
+
+    
     pitches: collection({
       label: 'Content Blocks',
       path: 'src/content/pitches/*',
@@ -218,10 +246,25 @@ export default config({
       },
     }),
 
+    pirateFeeds: collection({
+      label: 'Pirate Feeds',
+      path: 'src/content/pirateFeeds/*',
+      slugField: 'title',
+      schema: {
+        title: fields.text({ label: 'Title' }),
+        feedUrl: fields.text({ label: 'Feed Url', description: 'The address to the Pirate users feed that you want to follow' }),
+        order: fields.number({ label: 'Order' }),
+      },
+    }),
+
+
+
+
+    
+
 
     
   },
-
 
 
 
@@ -712,20 +755,21 @@ export default config({
 
     pirateSocial: singleton({
       label: 'Settings',
-      path: 'src/content/social/',
+      path: 'src/content/pirate/',
       schema: {
         profile: fields.text({ label: 'Profile Name' }),
         description: fields.text({ label: 'Profile Description' }),
-        autoDeletePiratePosts: fields.checkbox({
-          label: 'Auto-delete Pirate Posts',
-          description: 'Enable this to automatically delete Pirate Posts',
-          defaultValue: false,
-        }),
-        autoDeleteTime: fields.number({
-          label: 'Auto-delete Time (in minutes)',
-          description: 'Set the time after which Pirate Posts will be deleted',
-          defaultValue: 1440, // 24 hours in minutes
-        }),
+
+        // autoDeletePiratePosts: fields.checkbox({
+        //   label: 'Auto-delete Pirate Posts',
+        //   description: 'Enable this to automatically delete Pirate Posts',
+        //   defaultValue: false,
+        // }),
+        // autoDeleteTime: fields.number({
+        //   label: 'Auto-delete Time (in minutes)',
+        //   description: 'Set the time after which Pirate Posts will be deleted',
+        //   defaultValue: 1440, // 24 hours in minutes
+        // }),
       },
     }),
 
@@ -809,6 +853,8 @@ ui: {
     'Pirate Social': [
       'pirateSocial',
       'piratePosts',
+      'pirateFeeds',
+      'socialLinks',
     ],
   },
 },});
