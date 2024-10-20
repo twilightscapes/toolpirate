@@ -244,7 +244,7 @@ body {
 	  
 	  header.header {height:0;}
 
-	  #missioncontrol{line-height: 1; position:fixed; bottom:0; left:0; right:0; z-index:10; color:#fff; fill:#fff; background: var(--theme-header);  border-radius:var(--border-radius); border-bottom-right-radius: 0; border-bottom-left-radius: 0; opacity:.95; padding:0 1vw; }
+	  #missioncontrol{line-height: 1; position:fixed; bottom:0; left:0; right:0; z-index:10; color:#fff; fill:#fff; background: var(--theme-header);  border-radius:var(--border-radius); border-bottom-right-radius: 0; border-bottom-left-radius: 0; opacity:.95; padding:.5vh 1vw; }
 	  
 	  #missioncontrol button{margin-top:1vh; margin-bottom:1vh;}
 
@@ -253,7 +253,7 @@ body {
 		/* position:-webkit-sticky;position:sticky;top:0; */
 		width:50%}
 	  
-	  #gobacker, .button {
+	  /* .button {
 		display: flex;
 		align-items:center;
 		justify-content: center;
@@ -262,11 +262,11 @@ body {
 		background: var(--theme-header);
 		color:#ddd;
 		border-radius:var(--border-radius);
-	  }
+	  } */
 
-#gobacker.button{margin:0 auto; max-width: 200px;}
+#gobacker.button{margin:0 auto; max-width: 200px; height:60px; padding:1rem !important;}
 
-#gobacker {position: absolute !important; top:-5vh; bottom:1vn; left:0; right:0 !important;}
+#gobacker {position: absolute !important; bottom:0;  right:60px !important;}
 
 /* body.home #gobacker{display: none;} */
 	  /* #gobacker{position:fixed; display:flex;  right:10px; z-index:5; top:65px;} */

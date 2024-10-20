@@ -6,7 +6,10 @@ import YouTubeEmbed from '../YouTubeEmbed.astro';
 import Share from "@/components/Share.astro"
 import { getEntry } from 'astro:content';
 const siteSettings = await getEntry('siteSettings', 'main');
-const { showTitles, showTags, showDates, showShare } = siteSettings.data;
+const { showTitles, showTags, showDates, showShare, showSocial } = siteSettings.data;
+import SocialList from "@/components/SocialList.astro";
+
+
 
 
 interface Props {
@@ -48,6 +51,8 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
   ) : null
 }
 {showShare && <Share />}
+
+{showSocial && <SocialList />}
 
 <div class="panel" style={{ padding: "4%", width:'90%', margin:'0 auto', maxWidth:'1400px', display:'' }}>
     {data.draft ? <span class="text-base text-red-500">(Draft)</span> : null}

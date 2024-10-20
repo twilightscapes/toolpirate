@@ -166,6 +166,7 @@ const collections = {
       showDates: z.boolean().optional(),
       enableImageBlur: z.boolean().optional(),
       showTags: z.boolean().optional(),
+      showSocial: z.boolean().optional(),
       MAX_POSTS: z.number().optional(),
       MAX_POSTS_PER_PAGE: z.number().optional(),
       showShare: z.boolean().optional(),

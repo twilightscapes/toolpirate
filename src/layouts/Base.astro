@@ -59,11 +59,11 @@ const pageOgImage = ogImage || meta?.ogImage;
 	
 	<body>
 		<SkipLink />
-		<div id="top"></div>
+		
 		<Header transition:persist />
 		
 				<main id="main">
-					
+					<div id="top"></div>
 					<slot />
 				</main>
 				{ showFooter && (
