@@ -62,7 +62,8 @@ const playerVars: { [key: string]: number | string } = {
       src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
       alt={title || 'YouTube video thumbnail'}
       loading="lazy"
-      class="facade-thumbnail"
+      class="object-cover video-thumbnail"
+      style="width:100dvw; overflow:hidden;"
     />
     <button class="facade-play-button" aria-label="Play video">
       <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
