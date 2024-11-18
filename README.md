@@ -19,14 +19,6 @@
 
 
 
-<!-- <p align="left">PIRATE is a new social network with NO central control or ownership. It's based on leading Open-Source platforms and runs on individually owned websites.</p> -->
-
-<!-- <p align="left">PIRATE leverages the power of free services to host your own web app that you can control from any device, all for FREE!</p> -->
-
-<!-- <p align="left">Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p> -->
-
-<!-- <p align="left">PIRATE is also a complete website/web app platform with multimedia blog, that you can use however you wish. Completely configurable through the built in Content Management System.</p> -->
-
 <p align="left">PIRATE enables you to have YOUR OWN space on the web, where you can be confident that the content you produce is FULLY in your control. Twitter and other social media sites may change or come and go. With PIRATE, that doesn't matter - your content, is ALWAYS under your control.</p>
 
 <p align="left">PIRATE is built to operate using FREE Cloud Based Services. This means that your PIRATE account is basically free to operate month to month with no cost. You only pay a metered cost for what you use over the hosting providers generous limits.</p>
@@ -54,6 +46,10 @@
 
 <!-- [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftwilightscapes%2Fpirate&project-name=astro-pirate-theme) -->
 
+Setup takes about 4 minutes and <strong><i>requires a valid email address</i></strong>. This email address will be used to create an account on GitHub if you do not already have one. The GitHub account will be used to create an account on the hosting provider's site (Netlify) as well, and lastly it will be used for authentication in your web app itself. 
+
+(Don't worry) All of this is done for you.
+
 </div>
 
 ## 🏴‍☠️ Web Features
@@ -80,33 +76,31 @@
 - [Pagefind](https://pagefind.app/) static search library integration
 - [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
 - [Keystatic CMS](https://keystatic.com) is integrated into and controls all aspects of your site.
-- PiRATE Social features coming soon
+- PiRATE Social features a full version of BlueSky built in
 
 
 ## 🏴‍☠️ PIRATE Social
 
 PIRATE is not your typical social network. It's a decentralized network of individualy owned personal websites acting together as a new social content distribution model.
 
-Here's how it works: instead of relying on a central platform, PIRATE leverages the power of Netlify and GitHub to utelize their free services for hosting your own platorm. Your individual website becomes your hub for social interactions on both PIRATE and other social media. The content you produce, you fully own and control the rights to.
-
-More than just a collection of individual websites, PIRATE uses the magic of RSS feeds, you can enjoy a central timeline that aggregates posts from across the network. You get to see what others are sharing, discover new voices, and engage in meaningful conversations.
+Here's how it works: instead of relying on a central platform, PIRATE leverages the power of Netlify and GitHub to utilize their free services for hosting your own platorm. Your individual website becomes your hub for social interactions on BlueSky. Just go to yourwebsite.com/pirate and login. Now you can control your website, and your social media in the same app on your phone! All for FREE!
 
 Your PIRATE website is actually a Progressive Web App (PWA), which means you can access it seamlessly from any of your devices. Being a PWA also means there are no App Stores to worry about!
 
-PIRATE gives you the tools to easily edit your homepage, update your profile, and publish engaging posts. It's super easy to get started, without any complicated technical barriers.
+PIRATE gives you the tools to easily edit your homepage, update your profile, post your resume, and publish engaging posts. It's super easy to get started, without any complicated technical barriers.
 
 
 <div align="center">
 
 <br />
 <h3>Technology Stack</h3>
-PIRATE is built on industry leading technologies, and is designed from the ground up, using the best, most secure and modern development technology stack available today: <h3 style="font-size:30px;"><strong><i>T R A N G K</i></strong></h3>
-<a href=""><img alt="" role="presentation" aria-hidden="true" src="public/images/partners/typescript-logo.webp" width="16%" height="auto" /></a>
-<a href="https://react.dev"><img alt="React Logo" role="presentation" aria-hidden="true" src="public/images/partners/react-logo.webp" width="14%" height="auto" /></a>
-<a href="https://astro.build"><img alt="Astro Logo" role="presentation" aria-hidden="true" src="public/images/partners/Astro-logo.webp" width="15%" height="auto" /></a>
-<a href="https://netlify.com"><img alt="Netlify Logo" role="presentation" aria-hidden="true" src="public/images/partners/netlify-logo.webp" width="14%" height="auto" /></a>
-<a href="https://github.com"><img alt="GitHub Logo" role="presentation" aria-hidden="true" src="public/images/partners/github-logo.webp" width="15%" height="auto" /></a>
-<a href="https://keystatic.com"><img alt="Keystatic Logo" role="presentation" aria-hidden="true" src="public/images/partners/keystatic-logo.webp" width="16%" height="auto" /></a>
+PIRATE is built on industry leading technologies, and is designed from the ground up, using the best, most secure and modern development technology stack available today: <h3 style="font-size:30px;"><strong><i>T R A K</i></strong></h3>
+<a href=""><img alt="" role="presentation" aria-hidden="true" src="public/images/partners/typescript-logo.webp" width="24%" height="auto" /></a>
+<a href="https://react.dev"><img alt="React Logo" role="presentation" aria-hidden="true" src="public/images/partners/react-logo.webp" width="24%" height="auto" /></a>
+<a href="https://astro.build"><img alt="Astro Logo" role="presentation" aria-hidden="true" src="public/images/partners/Astro-logo.webp" width="24%" height="auto" /></a>
+<!-- <a href="https://netlify.com"><img alt="Netlify Logo" role="presentation" aria-hidden="true" src="public/images/partners/netlify-logo.webp" width="14%" height="auto" /></a>
+<a href="https://github.com"><img alt="GitHub Logo" role="presentation" aria-hidden="true" src="public/images/partners/github-logo.webp" width="15%" height="auto" /></a> -->
+<a href="https://keystatic.com"><img alt="Keystatic Logo" role="presentation" aria-hidden="true" src="public/images/partners/keystatic-logo.webp" width="24%" height="auto" /></a>
 
 
 <br /><br />

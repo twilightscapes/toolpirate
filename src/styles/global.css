@@ -96,7 +96,7 @@ body {
 
 	  .viewmore {
 		/* background-color: var(--theme-accent2); */
-		background:rgba(17, 17, 17, 0.7);
+		background:var(--theme-header);
 		border: none;
 		padding: 1vh 1.5vw;
 		font-size: clamp(1.1rem, 1vw, 1.4rem);
@@ -193,7 +193,7 @@ body {
 	  
 	  .quotecard {
 		display: flex;
-		background: rgba(0,0,0,0.80);
+		background: var(--theme-header);
 		backdrop-filter: blur(12px);
 		border: 0px solid;
 		color: #fff;
@@ -500,9 +500,9 @@ button.topper{background:var(--theme-header) !important;}
 
 
 	.panel {
-		backdrop-filter: blur(54px);
-		-webkit-backdrop-filter: blur(54px);
-		text-shadow: 0 1px 1px var(--theme-header);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		/* text-shadow: 0 1px 1px var(--theme-header); */
 	}
 
 	#directorySelect {

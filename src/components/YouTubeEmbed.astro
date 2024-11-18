@@ -50,36 +50,8 @@ const playerVars: { [key: string]: number | string } = {
 
 ---
 
-{videoId && (
-  <div 
-    class="video-facade" 
-    data-video-id={videoId} 
-    data-player-type={useCustomPlayer ? 'custom' : 'default'}
-    data-player-vars={JSON.stringify(playerVars)}
-    data-title={title}
-  >
-    <img 
-      src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
-      alt={title || 'YouTube video thumbnail'}
-      loading="lazy"
-      class="object-cover video-thumbnail"
-      style="width:100dvw; overflow:hidden;"
-    />
-    <button class="facade-play-button" aria-label="Play video">
-      <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
-        <path class="play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
-        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
-      </svg>
-    </button>
-  </div>
-)}
-
-
-<div id="player-mount-point"></div>
-
-
 {useCustomPlayer ? (
-  <div class="custom-youtube-player" style="display:none; justify-content:center;">
+  <div class="custom-youtube-player" style="display:flex; justify-content:center;">
   <div id="youtube-player" style="width:100%; max-width:1600px; aspect-ratio:16/9;"></div>
     <div class="custom-controls">
       <div class="topblock"></div>
@@ -113,39 +85,18 @@ const playerVars: { [key: string]: number | string } = {
     </div>
   </div>
 ) : (
-<iframe
- class="youtube-player"
-    style="width:100%; max-width:1600px; aspect-ratio:16/9; display:none;"
+  <iframe
+    width="100%"
+    height="450"
     src={`https://www.youtube.com/embed/${videoId}?autoplay=1&controls=${controls ? 1 : 0}&mute=${mute ? 1 : 0}&loop=${loop ? 1 : 0}&start=${start}&end=${end}`}
     title={title}
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
+    style="aspect-ratio: 16/9; min-height: 80vh;"
+
   ></iframe>
 )}
-
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const facade = document.querySelector('.video-facade') as HTMLDivElement;
-  if (facade) {
-    facade.addEventListener('click', () => {
-      const playerType = facade.dataset.playerType;
-      const targetPlayer = playerType === 'custom' 
-        ? document.querySelector('.custom-youtube-player')
-        : document.querySelector('iframe');
-        
-      if (targetPlayer) {
-        facade.remove();
-        (targetPlayer as HTMLElement).style.display = 'block';
-      }
-    });
-  }
-});
-</script>
-
-
-
 
 <script define:vars={{ videoId, playerVars, start, end, loop }}>
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -583,37 +534,6 @@ input[type="range"]::-webkit-slider-thumb {
   }
 </style>
 
-<style>
-.video-facade {
-  position: relative;
-  width: 100%;
-  max-width: 1600px;
-  aspect-ratio: 16/9;
-  cursor: pointer;
-  margin: 0 auto;
-}
 
-.facade-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.facade-play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68px;
-  height: 48px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  z-index: 3300;
-}
-.facade-play-button .play-button-bg {
-  fill: var(--theme-header) ;
-  }
-</style>
 
 
