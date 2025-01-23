@@ -22,10 +22,10 @@ showMore: false
 showFaqOnHome: false
 showTestOnHome: false
 featureOrder: 1
-bioOrder: 3
+bioOrder: 2
 appOrder: .nan
 galleryOrder: .nan
-postsOrder: 2
+postsOrder: 3
 resumeOrder: 8
 faqOrder: 6
 testimonialsOrder: 9
@@ -33,6 +33,4 @@ infoblockOrder: 3
 infoblock2Order: 4
 infoblock3Order: 5
 photosectiontitle: Photo Gallery
-faqsectiontitle: Questions about PIRATE?
-testimonialtitle: What the dogs are sayin'
-postsectiontitle: TOOL SHED
+postsectiontitle: TOOL VIDEOS

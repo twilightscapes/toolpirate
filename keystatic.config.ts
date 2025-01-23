@@ -323,17 +323,26 @@ export default config({
         }),
         divider: fields.empty(),
         defaultView: fields.select({
-          label: 'Default View (sets whether to show grid mode or swipe mode by default',
+          label: 'Default View (sets whether to show grid mode or swipe mode by default)',
           options: [
             { label: 'Grid', value: 'grid' },
             { label: 'Swipe', value: 'swipe' },
           ],
           defaultValue: 'grid',
         }),
+        themeMode: fields.select({
+          label: 'Theme Mode (sets the theme mode of the site)',
+          options: [
+            { label: 'Light', value: 'light' },
+            { label: 'Dark', value: 'dark' },
+            { label: 'User', value: 'user' },
+          ],
+          defaultValue: 'user',
+          description: 'Determines the theme mode of the site: light, dark, or user preference.',
+        }),
         MAX_POSTS: fields.number({ label: 'Number of posts to display on home page', defaultValue: 3 }),
         MAX_POSTS_PER_PAGE: fields.number({ label: 'Number of posts to display on other pages', defaultValue: 3 }),
         divider2: fields.empty(),
-
         showHeader: fields.checkbox({ label: 'Show Header', description: 'Hide/Show the main site header', defaultValue: true }),
         showLogo: fields.checkbox({ label: 'Show Logo', description: 'Hide/Show the logo in the header', defaultValue: true }),
         showHome: fields.checkbox({ label: 'Show Home Link', description: 'Hide/Show the Home Link', defaultValue: true }),
@@ -342,9 +351,6 @@ export default config({
         showSearch: fields.checkbox({ label: 'Show Search', description: 'Hide/Show the search in the header', defaultValue: true }),
         showFooter: fields.checkbox({ label: 'Show Footer', description: 'Hide/Show the Footer', defaultValue: true }),
         showCheck: fields.checkbox({ label: 'Hide Pirate promo', description: 'Hide/Show the Pirate info', defaultValue: true }),
-
-
-  
         showTitles: fields.checkbox({ label: 'Show Post Titles', description: 'Hide/Show the post titles', defaultValue: false }),
         showDates: fields.checkbox({ label: 'Show Dates', description: 'Hide/Show the post dates', defaultValue: true }),
         enableImageBlur: fields.checkbox({ 
@@ -352,19 +358,8 @@ export default config({
           defaultValue: true 
         }),
         showSocial: fields.checkbox({ label: 'Show Social Links in Posts' }),
-
         showTags: fields.checkbox({ label: 'Show Post Tags', description: 'Hide/Show the post tags', defaultValue: false }),
         showShare: fields.checkbox({ label: 'Show Share section on posts', description: 'Hide/Show the share this copy button on posts', defaultValue: false }),
-    
-  
-
-        
-
-
-
-        
-
-        
       },
     }),
     pwaSettings: singleton({
@@ -764,6 +759,7 @@ export default config({
         homelink: fields.text({ label: 'Home' }),
         copyright: fields.text({ label: 'Copyright' }),
         goback: fields.text({ label: 'Back' }),
+        top: fields.text({ label: 'Top' }),
         viewmore: fields.text({ label: 'View More' }),
         allimages: fields.text({ label: 'All Images' }),
         close: fields.text({ label: 'Close' }),
@@ -860,6 +856,28 @@ export default config({
     }),
 
 
+    
+
+    contactPage: singleton({
+      label: 'Contact Page',
+      path: 'src/content/contactPage/',
+      schema: {
+        content: fields.text({ label: 'Content', multiline: true }),
+        divider1: fields.empty(),
+        showName: fields.checkbox({ label: 'Show Name Field', defaultValue: true }),
+        showPhone: fields.checkbox({ label: 'Show Phone Field', defaultValue: true }),
+        showMessage: fields.checkbox({ label: 'Show Message Field', defaultValue: true }),
+        showUpload: fields.checkbox({ label: 'Show Upload Field', defaultValue: true }),
+        showExtraField: fields.checkbox({ label: 'Show Extra Field', defaultValue: false }),
+        extraFieldLabel: fields.text({ label: 'Extra Field Label', description: 'Label for the extra text field' }),
+        showExtraField2: fields.checkbox({ label: 'Show Extra Field 2', defaultValue: false }),
+        extraFieldLabel2: fields.text({ label: 'Extra Field Label 2', description: 'Label for the second extra text field' }),
+        showMap: fields.checkbox({ label: 'Show Map', defaultValue: true }),
+        
+        
+      },
+    }),
+
   },
 
 
@@ -883,6 +901,7 @@ ui: {
       'home',
       'pages',
       'posts',
+      'contactPage',
     ],
     'Content Modules': [
       'bio',
