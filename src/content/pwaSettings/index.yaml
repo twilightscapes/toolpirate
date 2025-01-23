@@ -2,7 +2,7 @@ showRobots: false
 siteUrl: https://tool.pirateyoutube.com
 name: Tool Shed
 shortName: Tool Shed
-description: Become A PIRATE!
+description: Tool Shed - an example site made with Pirate
 themeColor: rgba(0, 0, 0, 1)
 backgroundColor: rgba(0, 0, 0, 1)
 startUrl: /
