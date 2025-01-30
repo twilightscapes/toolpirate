@@ -21,16 +21,15 @@ showPosts: true
 showMore: false
 showFaqOnHome: false
 showTestOnHome: false
-featureOrder: 1
-bioOrder: 2
-appOrder: .nan
-galleryOrder: .nan
-postsOrder: 3
-resumeOrder: 8
-faqOrder: 6
-testimonialsOrder: 9
-infoblockOrder: 3
-infoblock2Order: 4
-infoblock3Order: 5
+sectionOrdering:
+  - feature
+  - bio
+  - posts
+  - resume
+  - gallery
+  - testimonials
+  - infoblock1
+  - infoblock2
+  - infoblock3
 photosectiontitle: Photo Gallery
 postsectiontitle: TOOL VIDEOS
